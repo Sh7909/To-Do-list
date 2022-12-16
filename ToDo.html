@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <p><strong>Add your To Do List here</strong></p><br> <br>
+  <input type="text" id="task" />
+  <button type="button" onclick="call()">Add</button>
+  <p><strong>To Do List</strong></p>
+
+
+  <div id="Item" style="padding-left:20px">  </div>
+
+
+  <script>
+
+    function call() {
+      var text = document.getElementById('task').value;//read the value of text box and assign it into the varaible
+      document.getElementById('task').value = "";//clear
+
+
+    //  Now we will add each new list inside above div element with id="addedItem"
+    //  We will add element as below
+              // <div>
+              //   <span> text
+                    //  <button> Delete </button>
+                    // </span>
+              // </div>
+    // Below we created this elements
+
+//  created "div" element as parent first and set it style
+    var newDiv = document.createElement('div');
+    newDiv.style.marginTop = "10px";
+
+ //  created "span" element as child of above div and set it style
+    var newSpan = document.createElement('span');
+    newSpan.innerHTML = text;
+
+ //  created "button" element as child of above span and set it style
+    var newBtn = document.createElement('button');
+    newBtn.innerHTML = "Delete";
+    newBtn.style.marginLeft = "10px";
+
+// appended span tag to div tag
+    newDiv.appendChild(newSpan);
+
+    //  appended button to span tag
+    newSpan.appendChild(newBtn);
+
+    // appended div to to element with id="Item"
+    document.getElementById("Item").appendChild(newDiv);
+}
+
+  </script>
+</body>
+
+</html>
